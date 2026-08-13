@@ -105,7 +105,7 @@ The system supports two distinct user roles — **Student** and **Faculty** — 
 - **PostgreSQL** stores all entities with fixed schemas and relational constraints — students, marks, attendance, GPA.
 - **MongoDB** stores flexible, semi-structured documents — leave requests (with optional attachments), course materials (variable content), and audit logs.
 - **Cross-DB Sync:** When a faculty member approves a leave request in MongoDB, the system automatically creates a corresponding `Leave` attendance record in PostgreSQL.
-
+<!-- Minor update -->
 ---
 
 ## <img src="https://img.icons8.com/color/24/folder-invoices.png"/> Project Structure
