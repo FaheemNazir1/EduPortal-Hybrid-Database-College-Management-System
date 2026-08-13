@@ -1,14 +1,18 @@
 const { Sequelize } = require('sequelize');
 
 const sequelize = new Sequelize(
-  process.env.PG_DB || 'college_academic',
-  process.env.PG_USER || 'postgres',
-  process.env.PG_PASSWORD || 'postgres',
+  process.env.DATABASE_URL || 'postgresql://postgres:postgres@localhost:5432/college_academic',
   {
-    host: process.env.PG_HOST || 'localhost',
-    port: process.env.PG_PORT || 5432,
     dialect: 'postgres',
     logging: false,
+    dialectOptions: process.env.DATABASE_URL
+      ? {
+        ssl: {
+          require: true,
+          rejectUnauthorized: false,
+        },
+      }
+      : {},
   }
 );
 
